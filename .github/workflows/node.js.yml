@@ -15,8 +15,7 @@ jobs:
     - name: directory frontend
       run: |
          npm i
-         npm run build
-         npm run test
+
       working-directory: ${{env.working-directory}}
     
       
