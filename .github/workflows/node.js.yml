@@ -37,7 +37,9 @@ jobs:
             deno-version: v1.1.2
 
         - name: RUN
-          run: deno run
+          run: |
+             deno --version
+             
 
  
  
