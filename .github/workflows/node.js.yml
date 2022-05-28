@@ -23,26 +23,18 @@ jobs:
       
   
   backend:
-      runs-on: ${{ matrix.os }}
-
-      strategy:
-        matrix:
-          os: [ubuntu-latest]
-          deno: ["v1.x", "nightly"]
-
+      runs-on: ubuntu-latest
+      env:
+        working-directory: ./backend
       steps:
-        - name: Set up repo
-          uses: actions/checkout@v2
-
-        - name: Set up Deno
-          uses: denolib/setup-deno@c7d7968ad4a59c159a777f79adddad6872ee8d96
-          with:
-            deno-version: ${{ matrix.deno }}
-
-        - name: Cache Dependencies
-          run: deno cache deps.ts
-
-        - name: Run Tests
-          run: deno test -A --unstable
-    
-      
+     
+       - uses: actions/checkout@master
+       - name: working directory
+         run: ls -R
+         working-directory: ${{env.working-directory}}
+       - name: directory frontend
+         run: |
+            curl -fsSL https://deno.land/x/install/install.sh | sh
+ 
+ 
+ 
