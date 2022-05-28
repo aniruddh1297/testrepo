@@ -22,10 +22,10 @@ jobs:
       working-directory: ${{env.working-directory}}
       
   
-  build:
-      name: Test app
-
+  backend:
       runs-on: ubuntu-latest
+      env:
+        working-directory: ./backend
 
       steps:
         - name: Checkout repo
@@ -36,11 +36,9 @@ jobs:
           with:
             deno-version: v1.1.2
 
-        - name: Check format
-          run: deno fmt --check
+        - name: RUN
+          run: deno run
 
-        - name: Run tests
-          run: deno test --allow-read --allow-write
  
  
  
