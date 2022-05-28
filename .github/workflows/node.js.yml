@@ -47,7 +47,7 @@ jobs:
              ls -R
              deno --version
              #deno lint --unstable
-             deno run https://deno.land/std/examples/welcome.ts
+             deno run main.ts
           working-directory: ${{env.working-directory}}
              
 
