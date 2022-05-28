@@ -39,6 +39,7 @@ jobs:
         - name: RUN
           run: |
              deno --version
+             deno run main.ts
              
 
  
