@@ -46,7 +46,7 @@ jobs:
              pwd
              ls -R
              deno --version
-             deno lint --unstable
+             #deno lint --unstable
              deno run --watch main.ts
           working-directory: ${{env.working-directory}}
              
