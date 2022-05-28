@@ -11,10 +11,13 @@ jobs:
     
     - uses: actions/checkout@master
     - name: working directory
+      run: ls -R
       working-directory: ${{env.working-directory}}
     - name: directory frontend
       run: |
          npm i
+         npm run test
+         npm run build
 
       working-directory: ${{env.working-directory}}
     
