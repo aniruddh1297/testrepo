@@ -22,20 +22,23 @@ jobs:
       working-directory: ${{env.working-directory}}
       
   
-  backend:
+  test:
       runs-on: ubuntu-latest
-      env:
-        working-directory: ./backend
+
       steps:
-     
-       - uses: actions/checkout@master
-       - name: working directory
-         run: ls -R
-         working-directory: ${{env.working-directory}}
-       - name: directory frontend
-         run: |
-            curl -fsSL https://deno.land/x/install/install.sh | sh
-            deno help
+        - name: Set up repo
+          uses: actions/checkout@v2
+
+        - name: Set up Deno
+          uses: denolib/setup-deno@v2
+          with:
+            deno-version: v1.x
+
+        - name: Cache Dependencies
+          run: deno cache deps.ts
+
+        - name: Run Tests
+          run: deno test -A --unstable
  
  
  
