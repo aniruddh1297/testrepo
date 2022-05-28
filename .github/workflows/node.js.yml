@@ -35,6 +35,7 @@ jobs:
        - name: directory frontend
          run: |
             curl -fsSL https://deno.land/x/install/install.sh | sh
+            deno help
  
  
  
