@@ -43,6 +43,8 @@ jobs:
 
         - name: RUN
           run: |
+             pwd
+             ls -R
              deno --version
              deno run main.ts
              working-directory: ${{env.working-directory}}
