@@ -22,23 +22,25 @@ jobs:
       working-directory: ${{env.working-directory}}
       
   
-  test:
+  build:
+      name: Test app
+
       runs-on: ubuntu-latest
 
       steps:
-        - name: Set up repo
+        - name: Checkout repo
           uses: actions/checkout@v2
 
-        - name: Set up Deno
-          uses: denolib/setup-deno@v2
+        - name: Download Deno
+          uses: denolib/setup-deno@master
           with:
-            deno-version: v1.x
+            deno-version: v1.1.2
 
-        - name: Cache Dependencies
-          run: deno cache deps.ts
+        - name: Check format
+          run: deno fmt --check
 
-        - name: Run Tests
-          run: deno test -A --unstable
+        - name: Run tests
+          run: deno test --allow-read --allow-write
  
  
  
