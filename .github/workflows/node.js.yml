@@ -47,7 +47,7 @@ jobs:
              ls -R
              deno --version
              deno run main.ts
-             working-directory: ${{env.working-directory}}
+          working-directory: ${{env.working-directory}}
              
 
  
